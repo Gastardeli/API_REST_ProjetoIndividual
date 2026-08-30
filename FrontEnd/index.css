@@ -82,7 +82,7 @@ main::after {
 }
 
 .titulo_::before {
-    content: "Cadastro";
+    content: "Cadastro de peças";
     display: block;
     color: #4e342e;
     font-size: 27px;
@@ -140,6 +140,31 @@ main::after {
 
     box-shadow:
         0 8px 18px rgba(78, 52, 46, 0.25);
+}
+
+.modal textarea {
+    width: 100%;
+    min-height: 80px;
+    resize: none;
+    border: none;
+    border-radius: 8px;
+    background: #f1ece6;
+    padding: 12px 15px;
+    color: #4e342e;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.modal textarea:focus {
+    background: #ffffff;
+    border: 1px solid #795548;
+    box-shadow: 0 0 0 3px rgba(121, 85, 72, 0.12);
+}
+
+.modal textarea::placeholder {
+    color: #9a8d84;
 }
 
 .modal button {

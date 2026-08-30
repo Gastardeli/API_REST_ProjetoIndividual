@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Cadastro de Peças</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -13,71 +13,83 @@
     <main>
         <div class="modal">
             <div class="titulo_"></div>
-            <label for="email">
-                <input type="text" id="email" placeholder="Usuário">
+
+            <label for="nome">
+                <input type="text" id="nome" placeholder="Nome da peça">
             </label>
-            <label for="senha">
-                <input type="password" id="senha" placeholder="Senha">
+
+            <label for="valor">
+                <input type="text" id="valor" placeholder="Valor (R$)" inputmode="decimal">
             </label>
-            <div class="area">
-                <label>Gênero:</label>
 
-                <div class="opcoes_genero">
-                    <label class="check_genero">
-                        <input type="radio" name="genero" value="masculino" id="genero-m" class="cbx-input">
-                        <span class="check">
-                            <svg width="18px" height="18px" viewBox="0 0 18 18">
-                                <path
-                                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
-                                </path>
-                                <polyline points="1 9 7 14 15 4"></polyline>
-                            </svg>
-                        </span>
-                        <span>Masculino</span>
-                    </label>
+            <label for="descricao">
+                <textarea id="descricao" placeholder="Descrição da peça" rows="3"></textarea>
+            </label>
 
-                    <label class="check_genero">
-                        <input type="radio" name="genero" value="feminino" id="genero-f" class="cbx-input">
-                        <span class="check">
-                            <svg width="18px" height="18px" viewBox="0 0 18 18">
-                                <path
-                                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
-                                </path>
-                                <polyline points="1 9 7 14 15 4"></polyline>
-                            </svg>
-                        </span>
-                        <span>Feminino</span>
-                    </label>
-
-                    <label class="check_genero">
-                        <input type="radio" name="genero" value="outro" id="genero-o" class="cbx-input">
-                        <span class="check">
-                            <svg width="18px" height="18px" viewBox="0 0 18 18">
-                                <path
-                                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
-                                </path>
-                                <polyline points="1 9 7 14 15 4"></polyline>
-                            </svg>
-                        </span>
-                        <span>Outro</span>
-                    </label>
-                </div>
-            </div>
+            <label for="data">
+                <input type="date" id="data" placeholder="Data de entrada">
+            </label>
 
             <div class="area">
-                <label for="perfil">Perfil de acesso:</label>
+                <label for="categoria">Categoria:</label>
 
                 <div class="box_input">
-                    <select name="perfil" id="perfil_input">
-                        <option value="" selected disabled>Selecione um perfil</option>
-                        <option value="administrador">Administrador</option>
-                        <option value="gestor">Gestor</option>
-                        <option value="estoquista">Estoquista</option>
-                        <option value="visualizacao">Visualização</option>
+                    <select name="categoria" id="perfil_input">
+                        <option value="" selected disabled>Selecione uma categoria</option>
+                        <option value="Ferragem">Ferragem</option>
+                        <option value="Madeira">Madeira</option>
+                        <option value="Serra">Serra</option>
+                        <option value="outros">Outros</option>
                     </select>
                 </div>
             </div>
-            <button type="submit">ENTRAR</button>
+
+            <div class="area">
+                <label>Condição:</label>
+
+                <div class="opcoes_genero">
+                    <label class="check_genero">
+                        <input type="radio" name="condicao" value="novo" id="condicao-novo" class="cbx-input">
+                        <span class="check">
+                            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                <path
+                                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
+                                </path>
+                                <polyline points="1 9 7 14 15 4"></polyline>
+                            </svg>
+                        </span>
+                        <span>Novo</span>
+                    </label>
+
+                    <label class="check_genero">
+                        <input type="radio" name="condicao" value="usado" id="condicao-usado" class="cbx-input">
+                        <span class="check">
+                            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                <path
+                                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
+                                </path>
+                                <polyline points="1 9 7 14 15 4"></polyline>
+                            </svg>
+                        </span>
+                        <span>Usado</span>
+                    </label>
+
+                    <label class="check_genero">
+                        <input type="radio" name="condicao" value="recondicionado" id="condicao-recond" class="cbx-input">
+                        <span class="check">
+                            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                <path
+                                    d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
+                                </path>
+                                <polyline points="1 9 7 14 15 4"></polyline>
+                            </svg>
+                        </span>
+                        <span>Recondicionado</span>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit">CADASTRAR</button>
         </div>
     </main>
     <footer></footer>
