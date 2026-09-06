@@ -35,6 +35,15 @@ public class PecaController {
         return ResponseEntity.status(200).body(pecas);
     }
 
+    @GetMapping("/select")
+    public ResponseEntity<List<Peca>> pegarSelect(){
+        String sql = "SELECT nome FROM  categorias;";
+
+        List<Peca> pecas = jdbcTemplate.query(sql,
+                new BeanPropertyRowMapper<>(Peca.class));
+        return ResponseEntity.status(200).body(pecas);
+    }
+
     @PostMapping
     public ResponseEntity<Peca> cadastrarPeca(@RequestBody Peca peca) {
 
