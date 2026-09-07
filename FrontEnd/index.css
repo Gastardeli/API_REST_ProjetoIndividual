@@ -8,10 +8,11 @@ body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
 
+    /* Gradiente Principal */
     background: linear-gradient(135deg,
-            #d7c3ae 0%,
-            #b89b83 50%,
-            #795548 100%);
+            #103f6b 0%,
+            #e75d24 50%,
+            #f09c20 100%);
 
     display: flex;
     justify-content: center;
@@ -38,7 +39,7 @@ main::before {
     width: 450px;
     height: 450px;
 
-    background: #8d6e63;
+    background: #103f6b;
 
     border-radius: 50%;
 
@@ -53,7 +54,7 @@ main::after {
     position: absolute;
     width: 350px;
     height: 350px;
-    background: #5d4037;
+    background: #f09c20;
     border-radius: 50%;
     bottom: -180px;
     right: -120px;
@@ -68,8 +69,9 @@ main::after {
     padding: 45px 50px;
     position: relative;
     z-index: 2;
+    /* Sombra suavizada com o Azul da paleta */
     box-shadow:
-        0 20px 45px rgba(62, 39, 35, 0.25);
+        0 20px 45px rgba(16, 63, 107, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,7 +86,7 @@ main::after {
 .titulo_::before {
     content: "Cadastro de peças";
     display: block;
-    color: #4e342e;
+    color: #103f6b; /* Atualizado para Azul Profundo */
     font-size: 27px;
     font-weight: 700;
 }
@@ -92,16 +94,17 @@ main::after {
 .modal label {
     width: 100%;
     margin-bottom: 18px;
+    color: #1c232b; /* Texto escuro neutro */
 }
 
 .modal input {
     width: 100%;
     height: 48px;
-    border: none;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
-    background: #f1ece6;
+    background: #f8f9fa; /* Fundo levemente acinzentado/neutro */
     padding: 0 15px;
-    color: #4e342e;
+    color: #1c232b;
     font-size: 14px;
     outline: none;
     transition: 0.3s;
@@ -109,48 +112,25 @@ main::after {
 
 .modal input:focus {
     background: #ffffff;
-    border: 1px solid #795548;
-    box-shadow: 0 0 0 3px rgba(121, 85, 72, 0.12);
+    border: 1px solid #103f6b; /* Foco em Azul */
+    box-shadow: 0 0 0 3px rgba(16, 63, 107, 0.15);
 }
 
 .modal input::placeholder {
-    color: #9a8d84;
+    color: #6c757d;
 }
 
-.modal::after {
-    width: 100%;
-    height: 48px;
-    margin-top: 5px;
-    background: linear-gradient(90deg,
-            #8d6e63,
-            #5d4037);
-    color: white;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.modal::after:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 18px rgba(78, 52, 46, 0.25);
-}
+/* Nota: Removidas as regras conflitantes do pseudo-elemento .modal::after que forçavam um estilo antigo tipo botão */
 
 .modal textarea {
     width: 100%;
     min-height: 80px;
     resize: none;
-    border: none;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
-    background: #f1ece6;
+    background: #f8f9fa;
     padding: 12px 15px;
-    color: #4e342e;
+    color: #1c232b;
     font-family: inherit;
     font-size: 14px;
     outline: none;
@@ -159,12 +139,12 @@ main::after {
 
 .modal textarea:focus {
     background: #ffffff;
-    border: 1px solid #795548;
-    box-shadow: 0 0 0 3px rgba(121, 85, 72, 0.12);
+    border: 1px solid #103f6b;
+    box-shadow: 0 0 0 3px rgba(16, 63, 107, 0.15);
 }
 
 .modal textarea::placeholder {
-    color: #9a8d84;
+    color: #6c757d;
 }
 
 .modal button {
@@ -173,10 +153,11 @@ main::after {
     border: none;
     border-radius: 8px;
     margin-top: 5px;
+    /* Gradiente com os acentos Laranja e Amarelo */
     background: linear-gradient(90deg,
-            #8d6e63,
-            #5d4037);
-    color: #fff;
+            #e75d24,
+            #f09c20);
+    color: #ffffff;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -185,7 +166,8 @@ main::after {
 
 .modal button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(78, 52, 46, 0.25);
+    /* Sombra alinhada ao Laranja do botão */
+    box-shadow: 0 8px 18px rgba(231, 93, 36, 0.35);
 }
 
 .area {
@@ -206,6 +188,7 @@ main::after {
     align-items: center;
     gap: 5px;
     margin-top: 10px;
+    color: #1c232b;
 }
 
 .check_genero input.cbx-input {
@@ -226,7 +209,7 @@ main::after {
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke: #c8ccd4;
+    stroke: #6c757d;
     stroke-width: 1.5;
     transition: all 0.2s ease;
 }
@@ -242,11 +225,11 @@ main::after {
 }
 
 .check_genero:hover .check svg {
-    stroke: #795548;
+    stroke: #e75d24;
 }
 
 .check_genero input.cbx-input:checked+.check svg {
-    stroke: #795548;
+    stroke: #e75d24; 
 }
 
 .check_genero input.cbx-input:checked+.check svg path {
@@ -264,20 +247,22 @@ main::after {
     width: 100%;
     height: 45px;
     border-radius: 10px;
+    border: 1px solid #e2e8f0;
     outline: none;
-    background: transparent;
-    color: #6d625c;
+    background: #f8f9fa;
+    color: #1c232b;
     font-size: 13px;
     cursor: pointer;
+    padding: 0 10px;
 }
 
 #perfil_input option {
-    color: #4e342e;
+    color: #1c232b;
     background-color: #ffffff;
 }
 
 #perfil_input:invalid {
-    color: #a69a91;
+    color: #6c757d;
 }
 
 @media (max-width: 600px) {
