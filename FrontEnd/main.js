@@ -21,13 +21,13 @@ function validacaoCampos() {
     const select = document.getElementById("perfil_input").value;
 
     if (agora > dataCliente) {
-        alert("A data selecionada é inválida!");
+        mostrarAlerta('error', 'Falha no Cadastro', 'Preencha todos os campos obrigatórios antes de enviar.');
     } else if (isNaN(valor) || valor <= 0 || valor > 100000) {
-        alert("Coloque um valor válido!");
+        mostrarAlerta('error', 'Falha no Cadastro', 'Preencha todos os campos obrigatórios antes de enviar.');
     } else if (nome === "" || descricao === "") {
-        alert("Atenção certifique-se de que os campos estão preenchidos");
+        mostrarAlerta('error', 'Falha no Cadastro', 'Preencha todos os campos obrigatórios antes de enviar.');
     } else if (select === "") {
-        alert("Certifique-se de que selecionou uma opção!");
+        mostrarAlerta('error', 'Falha no Cadastro', 'Preencha todos os campos obrigatórios antes de enviar.');
     } else {
         enviarDados(data, valor, nome, descricao, select);
     }
@@ -84,7 +84,58 @@ async function enviarDados(data, valor, nome, descricao, select) {
 
         const resultado = await resposta.json();
         console.log('Sucesso:', resultado);
+        mostrarAlerta('success', 'Cadastro Realizado!', 'A peça foi registrada com sucesso no sistema.');
+        
+        
     } catch (erro) {
         console.error('Erro:', erro);
     }
+}
+
+
+/* MODAL */
+
+function mostrarAlerta(tipo, titulo, mensagem) {
+    const overlay = document.getElementById('alertOverlay');
+    const modal = document.getElementById('alertModal');
+    const iconContainer = document.getElementById('alertIcon');
+    const titleEl = document.getElementById('alertTitle');
+    const messageEl = document.getElementById('alertMessage');
+
+    
+    modal.className = `alert-modal ${tipo}`;
+
+  
+    titleEl.textContent = titulo;
+    messageEl.textContent = mensagem;
+
+
+    if (tipo === 'success') {
+        iconContainer.innerHTML = `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>`;
+    } else if (tipo === 'error') {
+        iconContainer.innerHTML = `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>`;
+    } else if (tipo === 'warning') {
+        iconContainer.innerHTML = `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>`;
+    }
+
+   
+    overlay.classList.add('active');
+}
+
+
+function fecharAlerta() {
+    const overlay = document.getElementById('alertOverlay');
+    overlay.classList.remove('active');
 }

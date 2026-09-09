@@ -11,6 +11,27 @@
 <body>
     <header></header>
     <main>
+        <!-- Modal de Alertas -->
+        <div class="alert-overlay" id="alertOverlay">
+            <div class="alert-modal success" id="alertModal">
+
+                <!-- Ícone do alerta -->
+                <div class="alert-icon" id="alertIcon">
+                    <!-- Ícone de Sucesso (Check) por padrão -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+
+                <!-- Título e Mensagem -->
+                <h3 class="alert-title" id="alertTitle">Sucesso!</h3>
+                <p class="alert-message" id="alertMessage">Cadastro realizado com sucesso.</p>
+
+                <!-- Botão de Fechar/OK -->
+                <button class="alert-btn" onclick="fecharAlerta()">Continuar</button>
+            </div>
+        </div>
         <div class="modal">
             <div class="titulo_"></div>
 
@@ -75,7 +96,8 @@
                     </label>
 
                     <label class="check_genero">
-                        <input type="radio" name="condicao" value="recondicionado" id="condicao-recond" class="cbx-input">
+                        <input type="radio" name="condicao" value="recondicionado" id="condicao-recond"
+                            class="cbx-input">
                         <span class="check">
                             <svg width="18px" height="18px" viewBox="0 0 18 18">
                                 <path
